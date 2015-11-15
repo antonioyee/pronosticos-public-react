@@ -93,13 +93,13 @@ var PanelJugadores = React.createClass({
 
                 return (
                     <div className="col-sm-12 col-md-6">
-                        <div className="panel panel-info">
-                            <div className="panel-heading">
+                        <article className="panel panel-info">
+                            <header className="panel-heading">
                                 <h3 className="panel-title">{campo.nombre}</h3>
-                            </div>
+                            </header>
                             <Resumen jugadorResumen={jugadorResumen} />
                             <Tabla dataPronosticos={pronosticos} id_jugador={campo.id_jugador} />
-                        </div>
+                        </article>
                     </div>
                 )
             });
@@ -116,15 +116,15 @@ var PanelJugadores = React.createClass({
 var PanelResumen = React.createClass({
     render(){
         return (
-            <div className={'panel panel-' + this.props.classPanel}>
-                <div className="panel-heading">
+            <article className={'panel panel-' + this.props.classPanel}>
+                <header className="panel-heading">
                     <h3 className="panel-title">
                         <span className="visible-xs visible-sm"><span className={'label label-' + this.props.classPanel}><span className={'glyphicon ' + this.props.glyphicon}></span></span></span>
                         <span className="hidden-xs hidden-sm">{this.props.title} <span className={'label label-' + this.props.classPanel}><span className={'glyphicon ' + this.props.glyphicon}></span></span></span>
                     </h3>
-                </div>
-                <div className="panel-body" style={{'text-align':"center"}}><span className="lead">{this.props.total}</span></div>
-            </div>
+                </header>
+                <section className="panel-body" style={{'text-align':"center"}}><span className="lead">{this.props.total}</span></section>
+            </article>
         );
     }
 });
@@ -132,7 +132,7 @@ var PanelResumen = React.createClass({
 var Resumen = React.createClass({
     render(){
         return(
-            <div className="panel-body">
+            <section className="panel-body">
                 <div className="row">
                     <div className="col-xs-3 col-sm-2 col-md-4">
                         <PanelResumen title={'Aciertos'} classPanel={'success'} glyphicon={'glyphicon-thumbs-up'} total={this.props.jugadorResumen.aciertos} />
@@ -141,11 +141,11 @@ var Resumen = React.createClass({
                         <PanelResumen title={'Errores'} classPanel={'danger'} glyphicon={'glyphicon-thumbs-down'} total={this.props.jugadorResumen.errores} />
                     </div>
                     <div className="col-xs-6 col-sm-8 col-md-4">
-                        <div className="panel panel-primary">
-                            <div className="panel-heading">
+                        <article className="panel panel-primary">
+                            <header className="panel-heading">
                                 <h3 className="panel-title">Pronosticaste</h3>
-                            </div>
-                            <div className="panel-body">
+                            </header>
+                            <section className="panel-body">
                                 <div className="row">
                                     <div className="col-sm-4 col-md-12">
                                         <span className="badge">{this.props.jugadorResumen.locales}</span> LOCALES
@@ -157,11 +157,11 @@ var Resumen = React.createClass({
                                         <span className="badge">{this.props.jugadorResumen.visitas}</span> VISITAS
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+                            </section>
+                        </article>
                     </div>
                 </div>
-            </div>
+            </section>
         );
     }
 });
